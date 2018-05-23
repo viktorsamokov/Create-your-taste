@@ -1,0 +1,75 @@
+﻿<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Enter ingredients:</p>
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="vm.ingredient" placeholder="Ingredient name">
+                <span class="input-group-btn">
+                    <button class="btn btn-info" ng-enter="vm.add(vm.ingredient)" ng-click="vm.add(vm.ingredient)" ng-disabled="vm.ingredient.length == 0" type="button">Add</button>
+                </span>
+            </div>
+            <div ng-if="vm.ingredients.length > 0">
+                <h4 ng-repeat="ing in vm.ingredients">
+                    <a href="#" class="close" ng-click="vm.ingredients.splice($index, 1)" data-dismiss="alert" aria-label="close">&times;</a>
+                <span class="label label-default">{{ ing }}</span></h4>
+            </div>
+            <hr />
+            <div class="form-group">
+                <label for="sel1">Select category:</label>
+                <select class="form-control" id="sel1" ng-model="vm.categoryId">
+                    <option value="" disabled>---Choose---</</option>
+                    <option ng-repeat="cat in vm.categories" value="{{cat.RecipeCategoryId}}" ng-bind="cat.Name"></option>
+                </select>
+            </div>
+            <hr />
+            <div class="col-md-3 " style="padding-left:0">
+                <button type="button" class="btn btn-info" ng-click="vm.search()">
+                    <span class="glyphicon glyphicon-search"></span> Search
+                </button>
+            </div>
+
+            <!-- /input-group -->
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div ng-repeat="recipe in vm.recipes" class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+                        <a ui-sref="recipe({id: recipe.RecipeId})"><img class="img-thumbnail" style="height:200px; width:100%" ng-src="{{ recipe.RecipeImages[0].ImageUrl }}" alt="Oops"></a>
+                        <div class="caption"> 
+                            <h4 style="height:60px">
+                                <a style="height:40px" ui-sref="recipe({id: recipe.RecipeId})" ng-bind="recipe.Name" data-ellipsis></a>
+                            </h4>
+                            <div class="time pull-left">
+                                <img src="/UI Templates/assets/icons/clock.png">
+                                <span class="mins" ng-if="recipe.PreparationTime>=60 && recipe.PreparationTime%60 != 0">{{recipe.PreparationTime/60 | floor}} hours {{recipe.PreparationTime%60}} mins</span>
+                                <span class="mins" ng-if="recipe.PreparationTime>=60 && recipe.PreparationTime%60 == 0">{{recipe.PreparationTime/60 | floor}} hours</span>
+                                <span class="mins" ng-if="recipe.PreparationTime<60"> {{recipe.PreparationTime%60}} mins</span>
+                            </div>
+                            <div class="skills pull-right" style="color: #008000" ng-if="recipe.Difficulty == 0">
+                                Skills: <span class="difficulty">Easy</span>
+
+                            </div>
+                            <div style="color: #e65c00" class="skills pull-right" ng-if="recipe.Difficulty == 1">
+                                Skills: <span class="difficulty">
+                                    Medium
+                                </span>
+
+                            </div>
+                            <div style="color:red;" class="skills hard pull-right" ng-if="recipe.Difficulty == 2">
+                                Skills: <span class="difficulty">Advanced</span>
+
+                            </div>
+                            <br />
+                            <p ng-bind="recipe.ShortDescription" style="height:60px; margin-top:5px;" data-ellipsis></p>
+                        </div>
+                        <div class="ratings">
+                            <p class="pull-right" ng-bind="recipe.RecipeVotes.length + ' votes'"></p>
+                            <uib-rating ng-model="recipe.Rating" read-only="true" max="5" aria-labelledby="default-rating"></uib-rating>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4194,7 +4194,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-brand {
   float: left;
   padding: 15px 15px;
-  font-size: 18px;
+  font-size: 20px;
+  /*font-size: 18px;*/
   line-height: 20px;
 }
 
@@ -4501,17 +4502,21 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse {
-  background-color: #222222;
-  border-color: #080808;
+  background-color: #5cb85c;
+  border-color: #398439;
+  /*background-color: #222222;
+  border-color: #080808;*/
 }
 
 .navbar-inverse .navbar-brand {
-  color: #999999;
+    color: #ffffff;
+  /*color: #999999;*/
 }
 
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
-  color: #ffffff;
+  color: #222222;
+  /*color: #ffffff;*/
   background-color: transparent;
 }
 
@@ -4520,12 +4525,15 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse .navbar-nav > li > a {
-  color: #999999;
+    color: #ffffff;
+    font-size: 16px;
+  /*color: #999999;*/
 }
 
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #ffffff;
+  color: #222222;
+  /*color: #ffffff;*/
   background-color: transparent;
 }
 
@@ -5742,7 +5750,7 @@ body.modal-open,
   .modal-dialog {
     right: auto;
     left: 50%;
-    width: 600px;
+    width: 900px;
     padding-top: 30px;
     padding-bottom: 30px;
   }

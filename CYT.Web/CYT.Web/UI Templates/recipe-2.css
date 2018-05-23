@@ -1,0 +1,114 @@
+.yellow{
+    color: yellow;
+
+}
+.lg{
+    font-size:20px;
+}
+.custom{
+    text-align: center;
+    line-height:30px;
+}
+li span {
+    font-weight: normal;
+    font-size: medium;
+}
+.navbar-nav{
+    font-size: 18px;
+}
+
+.navbar-nav{
+    font-size: 18px;
+}
+.navbar-default {
+    background-color: #5cb85c;
+    border-color: #27ae60; }
+a.navbar-brand .btn-submit {
+    color: #ecf0f1; }
+.navbar-brand :hover, :focus {
+    color: #d1ffed; }
+.navbar-nav >li >a {
+    color: #ecf0f1; }
+.navbar-nav >li >a :hover, :focus {
+    color: #d1ffed;   }
+.active > a, a:hover, a:focus {
+    color: #d1ffed;
+    background-color: #27ae60; }
+.open > a > a:hover > a:focus{
+
+    color: #d1ffed;
+    background-color: #27ae60; }
+.caret {
+    border-top-color: #d1ffed;
+    border-bottom-color: #d1ffed; }
+.dropdown  > a .caret {
+    border-top-color: #ecf0f1;
+    border-bottom-color: #ecf0f1; }
+
+.caret :hover, :focus {
+    border-top-color: #d1ffed;
+    border-bottom-color: #d1ffed; }
+.navbar-toggle {
+    border-color: #27ae60;}
+.navbar-toggle  :hover,:focus {
+    background-color: #27ae60; }
+.navbar-toggle  :hover,:focus .icon-bar {
+    background-color: #ecf0f1; }
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #000000; }
+.navbar-default .navbar-nav .open .dropdown-menu > li > a :hover, :focus {
+    color: #d1ffed;
+    background-color: #27ae60; }
+	
+	
+.related-recipe-container {
+margin-bottom: 40px;
+}
+
+.time {
+margin-bottom: 5px;
+margin-top: 10px;
+}
+
+.skills {
+margin-bottom: 5px;
+}
+
+.mins, .difficulty{
+font-weight: bold;
+}
+
+.recipe-details {
+margin-bottom: 25px;
+}
+
+.recipe-details ul {
+padding-left: 25px;
+}
+
+ul.ingredients li {
+margin-bottom: 5px;
+}
+
+ol.recipe-method {
+ 
+}
+
+ol.recipe-method li {
+margin-bottom: 10px;
+}
+
+.related-recipe-container .skills.easy{
+  color: #008000;
+}
+
+.related-recipe-container .skills.medium{
+  color: #e65c00;
+}
+
+.related-recipe-container .skills.hard{
+  color: red;
+}
+
+

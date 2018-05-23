@@ -20,6 +20,10 @@ namespace CYT.Entities
 
         public string LastName { get; set; }
 
+        public string Username { get; set; }
+
+        public bool isBlocked { get; set; }
+
         public string Email { get; set; }
 
         public string ProfileImage { get; set; }
@@ -29,5 +33,7 @@ namespace CYT.Entities
         public UserRole UserRole { get; set; }
 
         public virtual ICollection<Recipe> Recipes { get; set; }
+
+        public virtual ICollection<Recipe> FavoriteRecipes { get; set; }
     }
 }

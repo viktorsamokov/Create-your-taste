@@ -1,1 +1,112 @@
-﻿<p>this is a test to see how it works </p>
+﻿<br><br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 well ">
+            <img src="{{vm.user.ProfileImage}}" class="img-responsive" width="100%">
+            <h2 class="custom text-center">
+                <!-- SLEDNIVE PODATOCI SE ZEMAAT OD BAZA -->
+                {{vm.user.Username}}   <br>
+                <h4 class="custom">
+
+                    <button ng-disabled="true" class="btn btn-success btn-block">
+                        <span class="glyphicon glyphicon-star"></span>&nbsp;&nbsp;Rating&nbsp; {{vm.user.Rating}}
+                    </button> <br>
+                    <!--<a href="user-admin.html">Edit profile</a>-->
+                </h4>
+            </h2>
+        </div>
+        
+        <div class="col-md-9">
+
+
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#myrecipes">Home</a></li>
+                <li><a data-toggle="tab" href="#favorites">Favorites</a></li>
+
+            </ul>
+
+            <div class="tab-content">
+                <div id="myrecipes" class="tab-pane fade in active">
+
+                    <!--    My recipes tab    -->
+                    <div ng-if="vm.noRecipes" class="alert alert-info">
+                        <strong>Info!</strong> {{vm.user.FirstName}} {{vm.user.LastName}} has no recipes uploaded yet.
+                    </div>
+                    <h3>My recipes</h3>
+                    <div class="row">
+                        <div ng-repeat="recipe in vm.recipes | limitTo: 6" class="col-lg-4 recipe">
+                            <a ui-sref="recipe({id: recipe.RecipeId})"><img class="img-thumbnail" ng-src="{{recipe.RecipeImages[0].ImageUrl}}" alt="Generic placeholder image"></a>
+                            <div>
+                                <div class="time">
+                                    <img src="/Content/clock.png">
+                                    <span class="mins" ng-if="recipe.PreparationTime>=60 && recipe.PreparationTime%60 != 0">{{recipe.PreparationTime/60 | floor}} hours {{recipe.PreparationTime%60}} mins</span>
+                                    <span class="mins" ng-if="recipe.PreparationTime>=60 && recipe.PreparationTime%60 == 0">{{recipe.PreparationTime/60 | floor}} hours</span>
+                                    <span class="mins" ng-if="recipe.PreparationTime<60"> {{recipe.PreparationTime%60}} mins</span>
+                                </div>
+                                <div class="skills pull-right" style="color: #008000" ng-if="recipe.Difficulty == 0">
+                                    Skills: <span class="difficulty">Easy</span>
+
+                                </div>
+                                <div style="color: #e65c00" class="skills pull-right" ng-if="recipe.Difficulty == 1">
+                                    Skills: <span class="difficulty">
+                                        Medium
+                                    </span>
+
+                                </div>
+                                <div style="color:red;" class="skills hard pull-right" ng-if="recipe.Difficulty == 2">
+                                    Skills: <span class="difficulty">Advanced</span>
+
+                                </div>
+                            </div>
+                            <h2><a ui-sref="recipe({id: recipe.RecipeId})">{{recipe.Name}}</a></h2>
+                            <p>{{recipe.ShortDescription}}</p>
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
+                </div>
+                <!--      Favorites tab       -->
+                <div id="favorites" class="tab-pane fade">                    
+                    <div ng-if="vm.noFavoriteRecipes" class="alert alert-info">
+                        <strong>Info!</strong> {{vm.user.FirstName}} {{vm.user.LastName}} has no favorites.
+                    </div>
+                    <h3>Favorites</h3>
+                    <div class="row">
+                        <div class="col-lg-4 recipe " ng-repeat="recipe in vm.favoriteRecipes">
+                            <a ui-sref="recipe({id : recipe.RecipeId})"><img class="img-thumbnail" ng-src="{{recipe.RecipeImages[0].ImageUrl}}" alt="Generic placeholder image"></a>
+                            <div>
+                                <div class="time">
+                                    <img src="/Content/clock.png">
+                                    <span class="mins" ng-if="recipe.PreparationTime>=60 && recipe.PreparationTime%60 != 0">{{recipe.PreparationTime/60 | floor}} hours {{recipe.PreparationTime%60}} mins</span>
+                                    <span class="mins" ng-if="recipe.PreparationTime>=60 && recipe.PreparationTime%60 == 0">{{recipe.PreparationTime/60 | floor}} hours</span>
+                                    <span class="mins" ng-if="recipe.PreparationTime<60"> {{recipe.PreparationTime%60}} mins</span>
+                                </div>
+                                <div class="skills easy" ng-if="recipe.Difficulty == 0">
+                                    Skills: <span class="easy difficulty">Easy</span>
+
+                                </div>
+                                <div class="skills medium" ng-if="recipe.Difficulty == 1">
+                                    Skills: <span class=" medium difficulty" ng-if="recipe.Difficulty == 1">
+                                        Medium
+                                    </span>
+
+                                </div>
+                                <div class="skills hard" ng-if="recipe.Difficulty == 2">
+                                    Skills: <span class="hard difficulty">Advanced</span>
+
+                                </div>
+                            </div>
+                            <h3 style="margin-top:0px; width:100%; text-align:center"><a ui-sref="recipe({id : recipe.RecipeId})">{{recipe.Name}}</a></h3>
+                            <p>{{recipe.ShortDescription}}</p>
+                            <div style="text-align:right; margin-right:5px; margin-bottom:5px">
+                                Made by
+                                <a ui-sref="user({id : recipe.UserId })">
+                                    <img class="img-circle" ng-src="{{ recipe.User.ProfileImage }}" style="width:50px; height:50px"/>
+                                </a>
+                                <a style="color:blue" ui-sref="user({id : vm.recipe.UserId })">{{ recipe.User.FirstName }} {{recipe.User.LastName}}</a>
+                            </div>
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,6 +6,8 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using CYT.Web.Models;
+using CYT.DataContext;
+using CYT.Web.DataContext;
 
 namespace CYT.Web
 {
@@ -15,7 +17,7 @@ namespace CYT.Web
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
-            app.CreatePerOwinContext(ApplicationDbContext.Create);
+            app.CreatePerOwinContext(IdentityDb.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 
@@ -54,15 +56,15 @@ namespace CYT.Web
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "199696403758351",
+               appSecret: "d2a1bda5a13d0efcdf4666d27120081a");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "339660692892-58docmt3s43nodha0be80ar3u61eugv8.apps.googleusercontent.com",
+                ClientSecret = "efL4FL8iv8gdLvi1WbYcXkmd"
+            });
         }
     }
 }

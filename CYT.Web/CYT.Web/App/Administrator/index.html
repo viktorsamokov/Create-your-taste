@@ -1,0 +1,241 @@
+﻿<div class="admin container">
+
+    <h2>Administration</h2>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">Users list</a></li>
+        <li><a data-toggle="tab" href="#reciepes-list">Recipes list</a></li>
+    </ul>
+
+
+    <div class="tab-content">
+
+        <div id="home" class="tab-pane fade in active">
+            <h3>Users list</h3>
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="table-responsive" id="ingredients-table">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Forename</th>
+                                    <th>Surname</th>
+                                    <th>Email</th>
+                                    <th>Block</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="user in vm.users">
+                                    <td>{{user.FirstName}}</td>
+                                    <td>{{user.LastName}}</td>
+                                    <td>{{user.Email}}</td>
+                                    <td>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" ng-model="user.isBlocked"></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success btn-sm" ng-click="vm.save(user)">Save</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div><!-- /.col-lg-12 -->
+
+
+
+
+            </div><!-- /.row -->
+        </div>
+
+        <div id="reciepes-list" class="tab-pane fade">
+            <h3>Receipes list</h3>
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="table-responsive" id="ingredients-table">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Difficulty</th>
+                                    <th>Preparation Time</th>
+                                    <th>Posted by</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                    <th>View more</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="recipe in vm.recipes">
+                                    <td>{{recipe.Name}}</td>
+                                    <td>{{recipe.RecipeCategory.Name}}</td>
+                                    <td>
+                                        <p ng-if="recipe.Difficulty == 0">Easy</p>
+                                        <p ng-if="recipe.Difficulty == 1">Medium</p>
+                                        <p ng-if="recipe.Difficulty == 2">Advanced</p>
+                                    </td>
+                                    <td>{{recipe.PreparationTime}} minutes</td>
+                                    <td>{{recipe.User.FirstName}} {{recipe.User.LastName}}</td>
+                                    <td>
+                                        <div>
+                                            <label ng-if="recipe.RecipeStatus == 0">
+                                                Pending
+                                            </label>
+                                            <label ng-if="recipe.RecipeStatus == 1">
+                                                Approved
+                                            </label>
+                                            <label ng-if="recipe.RecipeStatus == 2">
+                                                Disabled
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.approveRecipe(recipe)">Approve</button>
+                                        <button type="button" class="btn btn-danger btn-xs" ng-click="vm.disableRecipe(recipe)">Disable</button>
+
+                                    </td>
+                                    <td><a href="#" ng-click="vm.viewRecipe(recipe, 'lg')">details</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div><!-- /.col-lg-12 -->
+
+
+
+
+            </div><!-- /.row -->
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2016 Create Your Taste &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+
+</div><!-- /.container -->
+
+<script type="text/ng-template" id="myModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{vm.recipe.Name}}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-6">
+
+                <form name="uploadRecipe" class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="recipename">Recipe name:</label>
+                        <div class="col-sm-10">
+                            <input ng-disabled="true" type="text" required ng-model="vm.recipe.Name" class="form-control" name="recipename" id="recipename" placeholder="Enter recipe name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="mins">Ready in:</label>
+                        <div class="col-sm-5">
+                            <div class="col-sm-6 vertical-middle nopadding">
+                                <input ng-disabled="true" type="number" ng-model="vm.hours" class="form-control" max="24" min="0" required name="hours" style="display: inline-block;" id="hours" placeholder="hours" value="0">
+                            </div>
+                            hours
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="col-sm-6  vertical-middle nopadding">
+                                <input type="number" ng-disabled="true" ng-model="vm.minutes" class="form-control" max="60" min="0" required name="minutes" id="mins" placeholder="mins" value="0">
+                            </div>
+                            mins
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="difficulty">Difficulty:</label>
+                        <div class="col-sm-5">
+                            <select ng-disabled="true" ng-model="vm.recipe.Difficulty" ng-init="vm.recipe.Difficulty = vm.recipe.Difficulty" class="form-control" name="difficulty" required id="difficulty">
+                                <option value="" disabled>---Please select---</option>
+                                <option value="0">easy</option>
+                                <option value="1">medium</option>
+                                <option value="2">hard</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="category">Category:</label>
+                        <div class="col-sm-5">
+                            <select ng-disabled="true" ng-model="vm.recipe.RecipeCategoryId" class="form-control" required name="category" id="category">
+                                <option value="" disabled>---Please select---</option>
+                                <option ng-selected="vm.recipe.RecipeCategoryId" ng-repeat="option in vm.categories" value="{{option.RecipeCategoryId}}">{{ option.Name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-5">
+                            <div class="col-sm-6  vertical-middle nopadding">
+                                <div class="radio">
+                                    <label><input ng-disabled="true" type="radio" ng-model="vm.recipe.GlutenFree" ng-value="true" name="optradio">Yes</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input ng-disabled="true" type="radio" ng-model="vm.recipe.GlutenFree" ng-value="false" name="optradio">No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    Ingredients:
+                    <div class="table-responsive" id="ingredients-table">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Ingeredient</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="ingredient in vm.recipe.Ingredients">
+                                    <td>{{ingredient.Name}} </td>
+                                    <td>{{ingredient.Quantity}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+
+                <div class="row">
+                    <p style="width:100%">Recipe Images:</p>
+                    <br/>
+                    <div class="col-md-6" style="margin-bottom:5px" ng-repeat="item in vm.recipe.RecipeImages">
+                        <div>
+                            <img class="img-thumbnail" style="height:100px" ng-src="{{item.ImageUrl}}" />
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="col-sm-10">
+                    <label class="control-label col-sm-8" for="url">Video url (from youtube):</label>
+                    <br />
+                    <input type="text" ng-model="vm.recipe.VideoUrl" class="form-control" name="url" id="url" placeholder="Video url">
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="instructions">Preparing instructions*:</label>
+                    <textarea ng-disabled="true" ng-model="vm.recipe.Description" class="form-control" name="instructions" rows="5" cols="90" required id="instructions"></textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="instructions">Preparing instructions*:</label>
+                    <textarea ng-disabled="true" ng-model="vm.recipe.ShortDescription" class="form-control" name="instructions" rows="5" cols="90" required id="instructions"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Close</button>
+    </div>
+</script>

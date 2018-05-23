@@ -1,0 +1,544 @@
+﻿<div class="admin container">
+    <h2>User admin</h2>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">My details</a></li>
+        <li><a data-toggle="tab" href="#upload">Upload a recipe</a></li>
+        <li><a data-toggle="tab" href="#recipes">My recipes</a></li>
+        <li><a data-toggle="tab" href="#favoriterecipes">My favorites</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <h3>Мy details</h3>
+            <div class="row">
+                <div class="col-md-3">
+                    <img ng-show="vm.uploader.queue.length == 0" class="img-thumbnail" ng-src="{{vm.user.ProfileImage}}">
+                    <div ng-show="vm.uploader.queue.length >= 1">
+                        <div ng-repeat="item in vm.uploader.queue">
+                            <div>
+                                <div ng-show="vm.uploader.isHTML5" thumb="{ file: item._file, width: 200}"></div>
+                                <div style="text-align:center">
+                                    <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                        <span class="glyphicon glyphicon-upload"></span> Upload
+                                    </button>
+                                    <button type="button" style="margin-right:10px" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                        <span class="glyphicon glyphicon-trash"></span> Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </br>
+                    <p class="text-center" ng-show="vm.uploader.queue.length == 0"><a href="#" ng-click="vm.click()"><span class="glyphicon glyphicon-edit"></span> Edit profile image</a></p>
+                    <input ng-if="vm.canUpload" id="Logo" nv-file-select uploader="vm.uploader" type="file" name="Logo" style="display:none" />
+                </div><!-- /.col-lg-3 -->
+                <div class="col-md-6">
+                    <div class="alert alert-warning hidden">
+                        All fields marked with * are required.
+                    </div>
+                    <div class="alert alert-danger hidden">
+                        <strong>Error!</strong> Your old password doesn't match.
+                    </div>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="forename">Forename*:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="forename" ng-model="vm.user.FirstName" placeholder="Enter your name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="surname">Surname*:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="surname" ng-model="vm.user.LastName" placeholder="Enter your surname">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="email">Email:</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="email" ng-disabled="true" ng-model="vm.user.Email" placeholder="Enter email">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10 text-right">
+                                <button type="submit" class="btn btn-success" ng-click="vm.update()">Submit</button>
+                            </div>
+                        </div>
+
+                        <hr />
+                        <div ng-if="vm.passwordChanged.changed" class="alert alert-success">
+                            <strong>Success!</strong> <p ng-bind="vm.passwordChanged.message"></p>
+                        </div>
+                        <div ng-if="vm.incorrectPassword.incorrect" class="alert alert-danger">
+                            <strong>Error!</strong> <p ng-bind="vm.incorrectPassword.message"></p>
+                        </div>
+                        <div ng-if="!vm.result && vm.changePasswordViewModel.ConfirmPassword.length > 0" class="alert alert-danger">
+                            The new password and confirmation password do not match.
+                        </div>
+                        <div ng-if="vm.changePasswordViewModel.NewPassword.length < 6" class="alert alert-danger">
+                            The new password is too short.
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="old-pwd">Old password:</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="old-pwd" ng-minlength="6" placeholder="Enter your old password" ng-model="vm.changePasswordViewModel.OldPassword">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="new-pwd">New password:</label>
+                            <div class="col-sm-10">
+                                <input type="password" ng-change="vm.check()" ng-model="vm.changePasswordViewModel.NewPassword" class="form-control" id="new-pwd" placeholder="Enter your new password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="new-pwd">Confirm password:</label>
+                            <div class="col-sm-10">
+                                <input type="password" ng-change="vm.check()" ng-model="vm.changePasswordViewModel.ConfirmPassword" class="form-control" id="new-pwd" placeholder="Re-type new password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10 text-right">
+                                <button type="submit" class="btn btn-success" ng-disabled="!vm.result || vm.changePasswordViewModel.OldPassword.length < 1 || vm.changePasswordViewModel.ConfirmPassword.length < 1 || vm.changePasswordViewModel.NewPassword < 1" ng-click="vm.changePassword()">Change password</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+
+                </div><!-- /.col-lg-6 -->
+
+                <div class="col-md-3 text-center">
+                    Your current rating <br />
+                    <div class="rating-score">
+                        <span class="glyphicon glyphicon-star"></span> <span ng-bind="vm.user.Rating"></span>
+                    </div>
+
+                </div><!-- /.col-lg-3 -->
+            </div><!-- /.row -->
+        </div>
+        <div id="upload" class="tab-pane fade">
+            <br />
+            <div class="alert alert-info">
+                <strong>Info!</strong> All fields marked with * are required.
+            </div>
+            <div class="alert alert-success" ng-if="vm.success">
+                <a href="#" ng-click="vm.success = false" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Success!</strong> Your recipe was successfully uploaded! You have to wait for the administrator to approve the recipe so other users can see it.
+            </div>
+            <h3>
+                Upload a receipe
+                <button ng-disabled="vm.recipeImageUploader.queue.length == 0 || uploadRecipe.$invalid || !vm.recipe.Description.length || vm.ingredients.length == 0 || vm.recipe.ShortDescription.length == 0" type="button" ng-click="vm.uploadRecipe()" class="btn btn-success btn-sm col-md-offset-8 text-right" id="submit">
+                    Submit
+                </button>
+            </h3>
+
+            <div class="row">
+                <div class="col-md-6">
+
+                    <form name="uploadRecipe" class="form-horizontal" role="form">
+                        <div class="form-group" ng-class="{ 'has-error' : uploadRecipe.recipename.$invalid && !uploadRecipe.recipename.$pristine }">
+                            <label class="control-label col-sm-2" for="recipename">Recipe name*:</label>
+                            <div class="col-sm-10">
+                                <input type="text" required ng-model="vm.recipe.Name" class="form-control" name="recipename" id="recipename" placeholder="Enter recipe name">
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : uploadRecipe.hours.$invalid && !uploadRecipe.hours.$pristine }">
+                            <label class="control-label col-sm-2" for="mins">Ready in*:</label>
+                            <div class="col-sm-5">
+                                <div class="col-sm-6 vertical-middle nopadding">
+                                    <input type="number" ng-model="vm.hours" class="form-control" max="24" min="0" required name="hours" style="display: inline-block;" id="hours" placeholder="hours" value="0">
+                                </div>
+                                hours
+                            </div>
+                            <div class="col-sm-5" ng-class="{ 'has-error' : uploadRecipe.minutes.$invalid && !uploadRecipe.minutes.$pristine }">
+                                <div class="col-sm-6  vertical-middle nopadding">
+                                    <input type="number" ng-model="vm.minutes" class="form-control" max="60" min="1" required name="minutes" id="mins" placeholder="mins" value="0">
+                                </div>
+                                mins
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : uploadRecipe.difficulty.$invalid && !uploadRecipe.difficulty.$pristine }">
+                            <label class="control-label col-sm-2" for="difficulty">Difficulty*:</label>
+                            <div class="col-sm-5">
+                                <select ng-model="vm.recipe.Difficulty" class="form-control" name="difficulty" required id="difficulty">
+                                    <option value="" disabled>---Please select---</option>
+                                    <option value="0">easy</option>
+                                    <option value="1">medium</option>
+                                    <option value="2">hard</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : uploadRecipe.category.$invalid && !uploadRecipe.category.$pristine }">
+                            <label class="control-label col-sm-2" for="category">Category*:</label>
+                            <div class="col-sm-5">
+                                <select ng-model="vm.recipe.RecipeCategoryId" class="form-control" required name="category" id="category">
+                                    <option value="" disabled>---Please select---</option>
+                                    <option ng-repeat="option in vm.categories" value="{{option.RecipeCategoryId}}">{{ option.Name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" ng-class="{ 'has-error' : uploadRecipe.optradio.$invalid && !uploadRecipe.optradio.$pristine }" for="people">Gluten Free*:</label>
+                            <div class="col-sm-5">
+                                <div class="col-sm-6  vertical-middle nopadding">
+                                    <div class="radio">
+                                        <label><input type="radio" required ng-model="vm.recipe.GlutenFree" value="True" name="optradio">Yes</label>
+                                    </div>
+                                    <div class="radio">
+                                        <label><input type="radio" required ng-model="vm.recipe.GlutenFree" value="False" name="optradio">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        Add an ingredient*
+                        <div class="alert alert-warning hidden" id="ingredient-alert">
+                            Both fileds should not be empty.
+                        </div>
+                        <div class="table-responsive" id="ingredients-table">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Ingeredient</th>
+                                        <th>Quantity</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <input ng-model="vm.ingredientName" type="text" class="form-control" id="ingredient">
+                                        </th>
+                                        <th>
+                                            <input ng-model="vm.ingredientQuantity" type="text" class="form-control" id="quantity">
+                                        </th>
+                                        <th>
+                                            <button type="button" ng-disabled="vm.ingredientName.length == 0 || vm.ingredientQuantity.length == 0" class="btn btn-success btn-sm" id="add" ng-click="vm.addIngredient()">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="ingredient in vm.ingredients">
+                                        <td>{{ingredient.Name}} </td>
+                                        <td>{{ingredient.Quantity}}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger btn-sm" id="add" ng-click="vm.removeIngredient(vm.ingredients, $index)">
+                                                <span class="glyphicon glyphicon-minus"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-center"><a href="#" ng-click="vm.attachRecipeImages()"><span class="glyphicon glyphicon-edit"></span> Add images* (max 4)</a></p>
+                    <input id="recipeImages" multiple nv-file-select uploader="vm.recipeImageUploader" type="file" name="recipeImages" style="display:none" />
+
+                    <div class="row">
+                        <div class="col-md-6" style="margin-bottom:5px" ng-repeat="item in vm.recipeImageUploader.queue">
+                            <div>
+                                <div ng-show="vm.recipeImageUploader.isHTML5" thumb="{ file: item._file, height: 100}">
+
+                                </div>
+                                <button type="button" style="margin-right:10px" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                    <span class="glyphicon glyphicon-trash"></span> Remove
+                                </button>
+                                <div style="text-align:center">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-if="vm.recipeImageUploader.queue.length == 0" class="col-md-4">
+
+                        </div>
+
+                    </div>
+                    <br />
+                    <p class="text-center" ng-click=""><a href="#"><span class="glyphicon glyphicon-edit"></span> Add video</a></p>
+
+
+                    <div class="col-sm-10">
+                        <label class="control-label col-sm-8" for="url">Video url (from youtube):</label>
+                        <br />
+                        <input type="text" ng-model="vm.recipe.VideoUrl" class="form-control" name="url" id="url" placeholder="Video url">
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group" ng-class="{ 'has-error' : !vm.recipe.Description.length}">
+                        <label for="instructions">Preparing instructions*:</label>
+                        <textarea ng-model="vm.recipe.Description" class="form-control" name="instructions" rows="5" required id="instructions"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group" ng-class="{ 'has-error' : !vm.recipe.ShortDescription.length}">
+                        <label for="shortDesc">Short description*:</label>
+                        <textarea ng-model="vm.recipe.ShortDescription" class="form-control" name="shortDesc" rows="5" cols="90" required id="shortDesc"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="recipes" class="tab-pane fade">
+            <br />
+            <div ng-if="vm.noRecipes" class="alert alert-info">
+                <strong>Info!</strong> It looks like you dont have any recipes uploaded.
+            </div>
+            <div ng-if="vm.userRecipes.length > 0" class="page-header">
+                <h1>Your recipes</h1>
+            </div>
+            <table ng-if="vm.userRecipes.length > 0" class="table">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Preparation Time</th>
+                        <th>Skills</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="recipe in vm.userRecipes">
+                        <th scope="row">{{$index + 1 }}</th>
+                        <td>{{recipe.Name}}</td>
+                        <td><img class="img-thumbnail" style="height:60px !important" ng-src="{{recipe.RecipeImages[0].ImageUrl}}" /></td>
+                        <td>{{recipe.PreparationTime}} minutes</td>
+                        <td>
+                            <span style="color: #008000" ng-if="recipe.Difficulty == 0" class="difficulty">easy</span>
+                            <span style="color: #e65c00" class="difficulty" ng-if="recipe.Difficulty == 1">medium</span>
+                            <span class="difficulty" style="color:red;" ng-if="recipe.Difficulty == 2">advanced</span>
+                        </td>
+                        <td>{{recipe.PreparationTime}} minutes</td>
+                        <td>
+                            <div>
+                                <label ng-if="recipe.RecipeStatus == 0">
+                                    Pending
+                                </label>
+                                <label ng-if="recipe.RecipeStatus == 1">
+                                    Approved
+                                </label>
+                                <label ng-if="recipe.RecipeStatus == 2">
+                                    Disabled
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" ng-disabled="recipe.RecipeStatus != 1" class="btn btn-warning" ng-click="vm.editRecipe(recipe, 'lg')">Edit</button>
+                            <button type="button" ng-disabled="recipe.RecipeStatus != 1" class="btn btn-danger" ng-click="vm.removeRecipe(recipe, $index)">Delete</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div id="favoriterecipes" class="tab-pane fade">
+            <br />
+            <div ng-if="vm.noFavoriteRecipes" class="alert alert-info">
+                <strong>Info!</strong> It looks like you dont have any recipes uploaded.
+            </div>
+            <div ng-if="vm.favoriteRecipes.length > 0" class="page-header">
+                <h1>Your recipes</h1>
+            </div>
+            <table ng-if="vm.favoriteRecipes.length > 0" class="table">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Preparation Time</th>
+                        <th>Skills</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="recipe in vm.favoriteRecipes">
+                        <th scope="row">{{$index + 1 }}</th>
+                        <td>{{recipe.Name}}</td>
+                        <td><img class="img-thumbnail" style="height:60px !important" ng-src="{{recipe.RecipeImages[0].ImageUrl}}" /></td>
+                        <td>{{recipe.PreparationTime}} minutes</td>
+                        <td>
+                            <span style="color: #008000" ng-if="recipe.Difficulty == 0" class="difficulty">easy</span>
+                            <span style="color: #e65c00" class="difficulty" ng-if="recipe.Difficulty == 1">medium</span>
+                            <span class="difficulty" style="color:red;" ng-if="recipe.Difficulty == 2">advanced</span>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm" ng-click="vm.removeFavoriteRecipe(recipe, $index)">Remove</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{vm.recipe.Name}}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-6">
+
+                <form name="uploadRecipe" class="form-horizontal" role="form">
+                    <div class="form-group" ng-class="{ 'has-error' : uploadRecipe.recipename.$invalid && !uploadRecipe.recipename.$pristine }">
+                        <label class="control-label col-sm-2" for="recipename">Recipe name*:</label>
+                        <div class="col-sm-10">
+                            <input type="text" required ng-model="vm.recipe.Name" class="form-control" name="recipename" id="recipename" placeholder="Enter recipe name">
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : uploadRecipe.hours.$invalid && !uploadRecipe.hours.$pristine }">
+                        <label class="control-label col-sm-2" for="mins">Ready in*:</label>
+                        <div class="col-sm-5">
+                            <div class="col-sm-6 vertical-middle nopadding">
+                                <input type="number" ng-model="vm.hours" class="form-control" max="24" min="0" required name="hours" style="display: inline-block;" id="hours" placeholder="hours" value="0">
+                            </div>
+                            hours
+                        </div>
+                        <div class="col-sm-5" ng-class="{ 'has-error' : uploadRecipe.minutes.$invalid && !uploadRecipe.minutes.$pristine }">
+                            <div class="col-sm-6  vertical-middle nopadding">
+                                <input type="number" ng-model="vm.minutes" class="form-control" max="60" min="0" required name="minutes" id="mins" placeholder="mins" value="0">
+                            </div>
+                            mins
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : uploadRecipe.difficulty.$invalid && !uploadRecipe.difficulty.$pristine }">
+                        <label class="control-label col-sm-2" for="difficulty">Difficulty*:</label>
+                        <div class="col-sm-5">
+                            <select ng-model="vm.recipe.Difficulty" ng-init="vm.recipe.Difficulty = vm.recipe.Difficulty" class="form-control" name="difficulty" required id="difficulty">
+                                <option value="" disabled>---Please select---</option>
+                                <option value="0">easy</option>
+                                <option value="1">medium</option>
+                                <option value="2">hard</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : uploadRecipe.category.$invalid && !uploadRecipe.category.$pristine }">
+                        <label class="control-label col-sm-2" for="category">Category*:</label>
+                        <div class="col-sm-5">
+                            <select ng-model="vm.recipe.RecipeCategoryId" class="form-control" required name="category" id="category">
+                                <option value="" disabled>---Please select---</option>
+                                <option ng-selected="vm.recipe.RecipeCategoryId" ng-repeat="option in vm.categories" value="{{option.RecipeCategoryId}}">{{ option.Name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" ng-class="{ 'has-error' : uploadRecipe.optradio.$invalid && !uploadRecipe.optradio.$pristine }" for="people">Gluten Free*:</label>
+                        <div class="col-sm-5">
+                            <div class="col-sm-6  vertical-middle nopadding">
+                                <div class="radio">
+                                    <label><input type="radio" required ng-model="vm.recipe.GlutenFree" ng-value="true" name="optradio">Yes</label>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" required ng-model="vm.recipe.GlutenFree" ng-value="false" name="optradio">No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    Add an ingredient*
+                    <div class="alert alert-warning hidden" id="ingredient-alert">
+                        Both fileds should not be empty.
+                    </div>
+                    <div class="table-responsive" id="ingredients-table">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Ingeredient</th>
+                                    <th>Quantity</th>
+                                    <th>Action</th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <input ng-model="vm.ingredientName" type="text" class="form-control" id="ingredient">
+                                    </th>
+                                    <th>
+                                        <input ng-model="vm.ingredientQuantity" type="text" class="form-control" id="quantity">
+                                    </th>
+                                    <th>
+                                        <button type="button" ng-disabled="vm.ingredientName.length == 0 || vm.ingredientQuantity.length == 0" class="btn btn-success btn-sm" id="add" ng-click="vm.addIngredient()">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="ingredient in vm.recipe.Ingredients">
+                                    <td>{{ingredient.Name}} </td>
+                                    <td>{{ingredient.Quantity}}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger btn-sm" id="add" ng-click="vm.removeIngredient(vm.recipe.Ingredients, $index)">
+                                            <span class="glyphicon glyphicon-minus"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <p class="text-center" ng-if="vm.recipe.RecipeImages.length < 4"><a href="#" ng-click="vm.attachRecipeImages()"><span class="glyphicon glyphicon-edit"></span> Add images* (max 4)</a></p>
+                <input id="recipeImages" multiple nv-file-select uploader="vm.recipeImageUploader" type="file" name="recipeImages" style="display:none" />
+
+                <div class="row">
+                    <div class="col-md-6" style="margin-bottom:5px" ng-repeat="item in vm.recipeImageUploader.queue">
+                        <div>
+                            <div ng-show="vm.recipeImageUploader.isHTML5" thumb="{ file: item._file, height: 100}">
+
+                            </div>
+                            <button type="button" style="margin-right:10px" class="btn btn-danger btn-xs" ng-click="vm.removeItem(item)">
+                                <span class="glyphicon glyphicon-trash"></span> Remove
+                            </button>
+                            <div style="text-align:center">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="margin-bottom:5px" ng-repeat="item in vm.recipe.RecipeImages">
+                        <div>
+                            <img class="img-thumbnail" style="height:100px" ng-src="{{item.ImageUrl}}" />
+                            <button type="button" style="margin-right:10px" class="btn btn-danger btn-xs" ng-click="vm.removeImage(item)">
+                                <span class="glyphicon glyphicon-trash"></span> Remove
+                            </button>
+                        </div>
+                    </div>
+                    <a href="../../Controllers/WebApi/UsersController.cs">../../Controllers/WebApi/UsersController.cs</a>
+                    <div ng-if="vm.recipeImageUploader.queue.length == 0" class="col-md-4">
+
+                    </div>
+
+                </div>
+                <br />
+                <div class="col-sm-10">
+                    <label class="control-label col-sm-8" for="url">Video url (from youtube):</label>
+                    <br />
+                    <input type="text" ng-model="vm.recipe.VideoUrl" class="form-control" name="url" id="url" placeholder="Video url">
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group" ng-class="{ 'has-error' : !vm.recipe.Description.length}">
+                    <label for="instructions">Preparing instructions*:</label>
+                    <textarea ng-model="vm.recipe.Description" class="form-control" name="instructions" rows="5" cols="90" required id="instructions"></textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group" ng-class="{ 'has-error' : !vm.recipe.ShortDescription.length}">
+                    <label for="shortDesc">Short description*:</label>
+                    <textarea ng-model="vm.recipe.ShortDescription" class="form-control" name="shortDesc" rows="5" cols="90" required id="shortDesc"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button ng-disabled="uploadRecipe.$invalid || (vm.hours + vm.minutes == 0) || vm.recipe.Ingredients.length == 0 || vm.recipe.Description.length == 0 || vm.recipe.ShortDescription.length == 0" class="btn btn-primary" type="button" ng-click="vm.ok()">Update</button>
+        <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+    </div>
+</script>

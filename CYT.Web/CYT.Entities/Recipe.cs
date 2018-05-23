@@ -25,6 +25,8 @@ namespace CYT.Entities
 
         public string Name { get; set; }
 
+        public string ShortDescription { get; set; }
+
         public string Description { get; set; }
 
         public bool GlutenFree { get; set; }
@@ -41,14 +43,19 @@ namespace CYT.Entities
 
         public RecipeStatus RecipeStatus { get; set; }
 
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+
         [ForeignKey("RecipeCategory")]
         public int RecipeCategoryId { get; set; }
+
+        public virtual User User { get; set; }
 
         public virtual RecipeCategory RecipeCategory { get; set; }
 
         public virtual ICollection<RecipeImage> RecipeImages { get; set; }
 
-        public virtual ICollection<IngredientQuantity> Ingredients { get; set; }
+        public virtual ICollection<Ingredient> Ingredients { get; set; }
 
         public virtual ICollection<RecipeVote> RecipeVotes { get; set; }
 

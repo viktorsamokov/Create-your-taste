@@ -9,35 +9,26 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using CYT.Web.Models;
+using CYT.Entities;
+using CYT.Web.DataContext;
+using CYT.Web.FileManagement;
 
 namespace CYT.Web.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
-        private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        private CytDb db = new CytDb();
+        private FileManager fm = new FileManager();
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
-        }
-
-        public ApplicationSignInManager SignInManager
-        {
-            get
-            {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
-            }
-            private set 
-            { 
-                _signInManager = value; 
-            }
         }
 
         public ApplicationUserManager UserManager
@@ -61,6 +52,17 @@ namespace CYT.Web.Controllers
             return View();
         }
 
+        private ApplicationSignInManager _signInManager;
+
+        public ApplicationSignInManager SignInManager
+        {
+            get
+            {
+                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+            }
+            private set { _signInManager = value; }
+        }
+
         //
         // POST: /Account/Login
         [HttpPost]
@@ -73,9 +75,63 @@ namespace CYT.Web.Controllers
                 return View(model);
             }
 
+
+            // Require the user to have a confirmed email before they can log on.
+            // var user = await UserManager.FindByNameAsync(model.Email);
+            var user = UserManager.Find(model.Username, model.Password);
+            Entities.User u = db.Users.SingleOrDefault(us => us.Username == model.Username);
+            if (u.isBlocked)
+            {
+                ViewBag.Message = model.Username + " You have been banned, For more details write us email at cyt@gmail.com!";
+                return View("Info");
+            }
+            if (user != null)
+            {
+                if (!await UserManager.IsEmailConfirmedAsync(user.Id))
+                {
+                    string callbackUrl = await SendEmailConfirmationTokenAsync(user.Id, "Confirm your account-Resend");
+
+                    // Uncomment to debug locally  
+                    ViewBag.Link = callbackUrl;
+                    ViewBag.errorMessage = "You must have a confirmed email to log on. "
+                                         + "The confirmation token has been resent to your email account.";
+
+
+                    ViewBag.Message = "Check your email and confirm your account, you must be confirmed "
+                                    + "before you can log in.";
+
+                    // For local debug only
+                    ViewBag.Link = callbackUrl;
+
+                    //return View("Info");
+                    //return RedirectToAction("Index", "Home");
+                    //FOR SENDING THE MAIL
+                    System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage(
+                        new System.Net.Mail.MailAddress("createyourtaste@yahoo.com", "Web Registration"),
+                        new System.Net.Mail.MailAddress(user.Email));
+                    m.Subject = "Email confirmation";
+                    m.Body = string.Format("Dear {0}" +
+             "<BR/> Thank you for your registration, please click on the" +
+                "below link to complete your registration: <a href =\"{1}\"" +
+                "title =\"User Email Confirm\">{1}</a>",
+                       user.UserName, callbackUrl);
+                    m.IsBodyHtml = true;
+                    System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.mail.yahoo.com");
+                    string smtpCredentialMail = System.Configuration.ConfigurationManager.AppSettings["mailAccount"];
+                    string smtpCredentialPassword = System.Configuration.ConfigurationManager.AppSettings["mailPassword"];
+                    smtp.Credentials = new System.Net.NetworkCredential(smtpCredentialMail, smtpCredentialPassword);
+                    //smtp.UseDefaultCredentials = true;
+                    smtp.EnableSsl = true;
+
+                    smtp.Send(m);
+                    smtp.Port = 465;
+                    return View("Error");
+                }
+            }
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -101,6 +157,13 @@ namespace CYT.Web.Controllers
             {
                 return View("Error");
             }
+            var user = await UserManager.FindByIdAsync(await SignInManager.GetVerifiedUserIdAsync());
+            if (user != null)
+            {
+                var code = await UserManager.GenerateTwoFactorTokenAsync(user.Id, provider);
+                // Remove for Debug
+                ViewBag.Code = code;
+            }
             return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
 
@@ -120,7 +183,7 @@ namespace CYT.Web.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -151,19 +214,69 @@ namespace CYT.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Username, Email = model.Email, EmailConfirmed=true };
+                
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    Entities.User x=new Entities.User();
+                    x.Email = model.Email;
+                    x.Rating = 0;
+                    x.LastName = model.Lastname;
+                    x.FirstName = model.Firstname;
+                    x.UserRole = UserRole.Regular;
+                    x.ProfileImage = "/Content/userImage.png";
+                    x.Username = model.Username;
+                    db.Users.Add(x);
+                    db.SaveChanges();
                     
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    string pateka = fm.GetUserDirectoryPath(x.UserId);
+                    string receptiPateka = fm.GetUserRecipesDirectoryPath(x.UserId);
+                    //  Comment the following line to prevent log in until the user is confirmed.
+                    //  await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
-                    return RedirectToAction("Index", "Home");
+                    //User x = new User();
+                    //x.Email = model.Email;
+                    //x.FirstName = model.Firstname;
+                    //x.LastName = model.Lastname;
+                    //x.UserId = user.Id;
+
+                    //string callbackUrl = await SendEmailConfirmationTokenAsync(user.Id, "Confirm your account");
+
+
+                    //ViewBag.Message = "Check your email and confirm your account, you must be confirmed "
+                    //+ "before you can log in.";
+
+                    // For local debug only
+                    //ViewBag.Link = callbackUrl;
+
+                    //return View("Info");
+                    //return RedirectToAction("Index", "Home");
+                    //FOR SENDING THE MAIL
+
+                    //       System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage(
+                    //           new System.Net.Mail.MailAddress("createyourtaste@yahoo.com", "Web Registration"),
+                    //           new System.Net.Mail.MailAddress(user.Email));
+                    //       m.Subject = "Email confirmation";
+                    //       m.Body = string.Format("Dear {0}"+
+                    //"<BR/> Thank you for your registration, please click on the"+
+                    //   "below link to complete your registration: <a href =\"{1}\""+
+                    //   "title =\"User Email Confirm\">{1}</a>",
+                    //          user.UserName, callbackUrl) ;
+                    //       m.IsBodyHtml = true;
+                    //       System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.mail.yahoo.com");
+                    //       string smtpCredentialMail= System.Configuration.ConfigurationManager.AppSettings["mailAccount"]; 
+                    //       string smtpCredentialPassword= System.Configuration.ConfigurationManager.AppSettings["mailPassword"];
+                    //       smtp.Credentials = new System.Net.NetworkCredential(smtpCredentialMail, smtpCredentialPassword);
+                    //       //smtp.UseDefaultCredentials = true;
+                    //       smtp.EnableSsl = true;
+
+                    //       smtp.Send(m);
+                    //       smtp.Port = 465;
+                    return View("Login");
+                    //"Confirm", "Account", new { Email = user.Email } - needs to be the path instead of info in the line above.
+
+
                 }
                 AddErrors(result);
             }
@@ -209,12 +322,12 @@ namespace CYT.Web.Controllers
                     return View("ForgotPasswordConfirmation");
                 }
 
-                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                await UserManager.SendEmailAsync(user.Id, "Reset Password",
+                   "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                TempData["ViewBagLink"] = callbackUrl;
+                return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 
             // If we got this far, something failed, redisplay form
@@ -226,6 +339,7 @@ namespace CYT.Web.Controllers
         [AllowAnonymous]
         public ActionResult ForgotPasswordConfirmation()
         {
+            ViewBag.Link = TempData["ViewBagLink"];
             return View();
         }
 
@@ -248,6 +362,7 @@ namespace CYT.Web.Controllers
             {
                 return View(model);
             }
+
             var user = await UserManager.FindByNameAsync(model.Email);
             if (user == null)
             {
@@ -314,7 +429,12 @@ namespace CYT.Web.Controllers
             {
                 return View("Error");
             }
-            return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
+            return RedirectToAction("VerifyCode", new
+            {
+                Provider = model.SelectedProvider,
+                ReturnUrl = model.ReturnUrl,
+                RememberMe = model.RememberMe
+            });
         }
 
         //
@@ -403,26 +523,6 @@ namespace CYT.Web.Controllers
             return View();
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                if (_userManager != null)
-                {
-                    _userManager.Dispose();
-                    _userManager = null;
-                }
-
-                if (_signInManager != null)
-                {
-                    _signInManager.Dispose();
-                    _signInManager = null;
-                }
-            }
-
-            base.Dispose(disposing);
-        }
-
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
@@ -455,7 +555,7 @@ namespace CYT.Web.Controllers
         internal class ChallengeResult : HttpUnauthorizedResult
         {
             public ChallengeResult(string provider, string redirectUri)
-                : this(provider, redirectUri, null)
+               : this(provider, redirectUri, null)
             {
             }
 
@@ -479,6 +579,17 @@ namespace CYT.Web.Controllers
                 }
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
+        }
+
+        private async Task<string> SendEmailConfirmationTokenAsync(string userID, string subject)
+        {
+            string code = await UserManager.GenerateEmailConfirmationTokenAsync(userID);
+            var callbackUrl = Url.Action("ConfirmEmail", "Account",
+               new { userId = userID, code = code }, protocol: Request.Url.Scheme);
+            await UserManager.SendEmailAsync(userID, subject,
+               "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+            return callbackUrl;
         }
         #endregion
     }

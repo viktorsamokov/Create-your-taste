@@ -28,7 +28,10 @@ namespace CYT.Web
                      "~/Scripts/angular-ckeditor/angular-ckeditor.js",
                      "~/Scripts/lodash.js",
                      "~/Scripts/angular-google-maps.js",
-                     "~/Scripts/bower_components/angular-ui-router/release/angular-ui-router.js"
+                     "~/Scripts/bower_components/angular-ui-router/release/angular-ui-router.js",
+                     "~/Scripts/bower_components/angular-bootstrap/ui-bootstrap-tpls.js",
+                     "~/Scripts/bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.js",
+                     "~/Scripts/bower_components/angular-ellipsis/src/angular-ellipsis.js"
                    ));
 
             bundles.Add(new ScriptBundle("~/bundles/angular/app").Include(
@@ -45,9 +48,29 @@ namespace CYT.Web
                         "~/App/Main/*.module.js",
                         "~/App/Main/*.controller.js",
 
+                        /// Filter
+                        "~/App/SearchRecipes/*.module.js",
+                        "~/App/SearchRecipes/*.controller.js",
+
                         /// User
                         "~/App/User/*.module.js",
-                        "~/App/User/*.controller.js"
+                        "~/App/User/*.controller.js",
+
+                        /// Recipe
+                        "~/App/Recipe/*.module.js",
+                        "~/App/Recipe/*.controller.js",
+
+                        /// User Admin
+                        "~/App/UserAdmin/*.module.js",
+                        "~/App/UserAdmin/*.controller.js",
+
+                        /// User Administrator
+                        "~/App/Administrator/*.module.js",
+                        "~/App/Administrator/*.controller.js",
+
+                        /// Directives
+                        "~/App/Directives/*.module.js",
+                        "~/App/Directives/*.directive.js"
                         ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -57,11 +80,15 @@ namespace CYT.Web
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js"
+                      ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/user-admin.css",
+                      "~/Scripts/bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css"
+                      ));
         }
     }
 }

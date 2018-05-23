@@ -1,0 +1,25 @@
+.admin.container{
+  margin-top: 4em;
+}
+
+.rating-score{
+  background-color: #5cb85c;
+  border-radius: 5px;
+  padding: 0.5em;
+  color: #fff;
+}
+
+.vertical-middle{
+	float: none;
+	display: inline-block !important;
+	vertical-align: middle;
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+.modal-backdrop.in {
+	opacity: 0.9 !important;
+}

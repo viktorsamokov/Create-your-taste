@@ -10,7 +10,6 @@ namespace CYT.Web.DataContext
     public class CytDb : DbContext
     {
         public DbSet<Ingredient> Ingredients { get; set; }
-        public DbSet<IngredientQuantity> IngredientQuantities { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<RecipeCategory> RecipeCategories { get; set; }
         public DbSet<RecipeImage> RecipeImages { get; set; }

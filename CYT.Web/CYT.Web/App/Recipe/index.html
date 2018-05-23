@@ -1,0 +1,122 @@
+﻿<div class="row">
+    <div class="col-md-9" style="margin-top:30px">
+        <div class="row">
+            <h1 class="text-center">{{vm.recipe.Name}} 
+                <uib-rating ng-model="vm.recipe.Rating" read-only="true" max="5" aria-labelledby="default-rating"></uib-rating>
+            </h1>
+        </div>
+
+    </div>
+    <div class="col-md-9" style="margin-top:30px;">
+        <div class="row">
+            <div class="col-md-9">
+                <div ng-repeat="image in vm.recipe.RecipeImages| limitTo: 4" ng-if="$index%2==0">
+                    <div class="col-md-6">
+                        <img ng-src="{{vm.recipe.RecipeImages[$index].ImageUrl}}" style="width:250px; height:150px;" class="img-thumbnail">
+                    </div>
+                    <div class="col-md-6" ng-if="vm.recipe.RecipeImages[$index+1]" >
+                        <img ng-src="{{vm.recipe.RecipeImages[$index+1].ImageUrl}}" style="width:250px; height:150px;" class="img-thumbnail">
+                    </div>
+                </div>
+                <h3>
+                    Ingredients <br>
+                </h3>
+                <div >
+                    <p>
+                    <p ng-repeat="ing in vm.recipe.Ingredients">
+                        -{{ing.Quantity}} {{ing.Name}} <br />
+                    </p>
+                    </p>
+                </div>
+
+                <div>
+                    <h3>
+                        Method <br>
+                    </h3>
+                    <ol style="font-weight: bold; list-style:none; font-size: x-large;">
+                        <li>
+                            <span style="font-weight:normal; font-size:medium">
+                                {{ vm.recipe.Description}}
+                            </span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="col-md-3" style="margin-top:50px; border-left:1px solid black;">
+                <div ng-if="vm.isLogged">
+                    <button ng-if="!vm.favorited" class="btn-info" ng-click="vm.favoriteRecipe()">Favorite this recipe</button>
+                    <span class="label-info" ng-if="vm.favorited">Added to favorites!</span>
+                    <br />
+                </div>
+                <div ng-if="vm.isLogged">
+                    Rate this recipe  <br />
+                    <uib-rating ng-model="vm.vote.VoteValue" ng-click="vm.voteForRecipe(vm.vote)" max="5" read-only="false"  aria-labelledby="default-rating"></uib-rating>
+                    <br />
+                </div>
+                Preparation time <br>
+                <h4 ng-if="vm.recipe.PreparationTime <= 60"><img src="/UI Templates/assets/icons/clock.png" style="margin-right:5px">{{vm.recipe.PreparationTime}} minutes</h4>
+                <h4 ng-if="vm.recipe.PreparationTime > 60"><img src="/UI Templates/assets/icons/clock.png" style="margin-right:5px">{{vm.hour}} h and {{vm.minutes}} minutes</h4>
+                 <br>
+                Skills
+                <h4>{{ vm.difficulty }}</h4>
+                <br>
+                Gluten free
+                <h4>{{vm.gluten}}</h4>
+                <br />
+                Category: 
+                <h4>{{vm.recipe.RecipeCategory.Name}}</h4>
+                <br />
+                <div>
+                    Made by
+                    <br>
+                    <a ui-sref="user({id : vm.recipe.UserId })">
+                        <img class="img-circle" ng-src="{{ vm.recipe.User.ProfileImage }}" width="50" height="50" />
+                        </a>
+                        <a ui-sref="user({id : vm.recipe.UserId })">{{ vm.recipe.User.FirstName }} {{vm.recipe.User.LastName}}</a>
+</div>
+            </div>
+
+        </div>
+        
+
+        <div ng-if="vm.recipe.VideoUrl.length > 0">
+            <h4>Video of the recipe</h4>
+            <iframe width="420" height="315"
+            ng-src="{{ vm.youtubeUrl }}"></iframe>
+        </div>
+        
+
+        <hr>
+       
+    </div>
+
+
+
+    <!--      Related recipes       -->
+
+    <div class="col-md-3" style="margin-top:30px">
+        <div class="well">
+            <h3 style="color: #2b669a">Related recipes</h3> <br>
+            <div ng-repeat="recipe in vm.similarRecipes">
+                <a ui-sref="recipe({id: recipe.RecipeId})"><img class="img-thumbnail" ng-src="{{ recipe.RecipeImages[0].ImageUrl }}" alt="Generic placeholder image"></a>
+                <div>
+                    <div class="time">
+                        <img src="/UI Templates/assets/icons/clock.png">
+                        <span class="mins">{{recipe.PreparationTime}} minutes</span>
+                    </div>
+                    <div class="skills hard">
+                        Skills: <span style="color: #008000" ng-if="recipe.Difficulty == 0" class="difficulty">easy</span>
+                        <span style="color: #e65c00" class="difficulty" ng-if="recipe.Difficulty == 1">medium</span>
+                        <span class="difficulty" style="color:red;" ng-if="recipe.Difficulty == 2">advanced</span>
+                    </div>
+                </div>
+                <h4><a ui-sref="recipe({id: recipe.RecipeId})">{{ recipe.Name }}</a></h4>
+                <p>{{ recipe.ShortDescription }}</p>
+                <hr />
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

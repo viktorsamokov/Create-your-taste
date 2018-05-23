@@ -78,6 +78,19 @@ namespace CYT.Web.Models
         public string PhoneNumber { get; set; }
     }
 
+    public class PasswordStatusMessageViewModel
+    {
+        public string Status { get; set; }
+        public PasswordStatusMessage StatusType { get; set; }
+    }
+
+    public enum PasswordStatusMessage
+    {
+        Success,
+        IncorrectPassword,
+        Mismatch,
+    }
+
     public class ConfigureTwoFactorViewModel
     {
         public string SelectedProvider { get; set; }

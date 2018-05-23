@@ -16,7 +16,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44301</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -40,6 +40,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -49,9 +52,33 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.2\lib\net45\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGrid, Version=6.3.4.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.6.3.4\lib\SendGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGrid.SmtpApi, Version=1.3.1.0, Culture=neutral, PublicKeyToken=2ae73662c35d80e4, processorArchitecture=MSIL">
+      <HintPath>..\packages\SendGrid.SmtpApi.1.3.1\lib\net40\SendGrid.SmtpApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGridMail, Version=6.3.4.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.6.3.4\lib\SendGridMail.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -102,6 +129,10 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="Twilio.Api, Version=3.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.4.7.1\lib\3.5\Twilio.Api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -112,12 +143,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.Formatting">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.Http">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
@@ -174,13 +199,55 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\WebApi\IngredientsController.cs" />
+    <Compile Include="Controllers\WebApi\RecipeCategoriesController.cs" />
+    <Compile Include="Controllers\WebApi\RecipeImagesController.cs" />
     <Compile Include="Controllers\WebApi\RecipesController.cs" />
+    <Compile Include="Controllers\WebApi\RecipeVotesController.cs" />
     <Compile Include="Controllers\WebApi\UsersController.cs" />
     <Compile Include="DataContext\CytDb.cs" />
     <Compile Include="DataContext\CytMigrations\201604231319463_InitialCreate.cs" />
     <Compile Include="DataContext\CytMigrations\201604231319463_InitialCreate.Designer.cs">
       <DependentUpon>201604231319463_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContext\CytMigrations\201606071519210_Username.cs" />
+    <Compile Include="DataContext\CytMigrations\201606071519210_Username.Designer.cs">
+      <DependentUpon>201606071519210_Username.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\CytMigrations\201606071707554_AddUserIdInRecipe.cs" />
+    <Compile Include="DataContext\CytMigrations\201606071707554_AddUserIdInRecipe.Designer.cs">
+      <DependentUpon>201606071707554_AddUserIdInRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\CytMigrations\201606072305109_RemoveQuantityIngrediantEntity.cs" />
+    <Compile Include="DataContext\CytMigrations\201606072305109_RemoveQuantityIngrediantEntity.Designer.cs">
+      <DependentUpon>201606072305109_RemoveQuantityIngrediantEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\CytMigrations\201606101234221_ShortDescriptionOnRecipe.cs" />
+    <Compile Include="DataContext\CytMigrations\201606101234221_ShortDescriptionOnRecipe.Designer.cs">
+      <DependentUpon>201606101234221_ShortDescriptionOnRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\CytMigrations\201606101607143_IsUserBlockedMigration.cs" />
+    <Compile Include="DataContext\CytMigrations\201606101607143_IsUserBlockedMigration.Designer.cs">
+      <DependentUpon>201606101607143_IsUserBlockedMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\CytMigrations\201606110954311_AddedFavoriteRecipes.cs" />
+    <Compile Include="DataContext\CytMigrations\201606110954311_AddedFavoriteRecipes.Designer.cs">
+      <DependentUpon>201606110954311_AddedFavoriteRecipes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\IdentityDb.cs" />
+    <Compile Include="DataContext\IdentityMigrations\201606012204011_initialCreate.cs" />
+    <Compile Include="DataContext\IdentityMigrations\201606012204011_initialCreate.Designer.cs">
+      <DependentUpon>201606012204011_initialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\IdentityMigrations\201606071232263_InitialCreate2.cs" />
+    <Compile Include="DataContext\IdentityMigrations\201606071232263_InitialCreate2.Designer.cs">
+      <DependentUpon>201606071232263_InitialCreate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\IdentityMigrations\Configuration.cs" />
+    <Compile Include="FileManagement\FileManager.cs" />
+    <Compile Include="FileUpload\FileUploader.cs" />
+    <Compile Include="FileUpload\FileUploadResult.cs" />
+    <Compile Include="FileUpload\GuidMultipartFormDataStreamProvider.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -188,22 +255,176 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\Administrator\administrator.controller.js" />
+    <Content Include="App\Administrator\index.html" />
+    <Content Include="App\Administrator\administrator.module.js" />
+    <Content Include="App\Administrator\modal.controller.js" />
     <Content Include="App\App.js" />
     <Content Include="App\Core\config.js" />
     <Content Include="App\Core\core.module.js" />
     <Content Include="App\DataServices\app.data.module.js" />
+    <Content Include="App\DataServices\recipe.category.data.js" />
+    <Content Include="App\DataServices\recipe.data.js" />
+    <Content Include="App\DataServices\recipe.vote.data.js" />
+    <Content Include="App\DataServices\recipe.image.data.js" />
+    <Content Include="App\DataServices\user.data.js" />
+    <Content Include="App\Directives\enter.directive.js" />
+    <Content Include="App\Directives\thumb.directive.js" />
+    <Content Include="App\Directives\directives.module.js" />
     <Content Include="App\Main\index.html" />
     <Content Include="App\Main\main.controller.js" />
     <Content Include="App\Main\main.module.js" />
+    <Content Include="App\Recipe\index.html" />
+    <Content Include="App\Recipe\recipe.controller.js" />
+    <Content Include="App\Recipe\recipe.module.js" />
+    <Content Include="App\SearchRecipes\search.controller.js" />
+    <Content Include="App\SearchRecipes\search.module.js" />
+    <Content Include="App\SearchRecipes\index.html" />
+    <Content Include="App\UserAdmin\admin.user.controller.js" />
+    <Content Include="App\UserAdmin\admin.user.module.js" />
+    <Content Include="App\UserAdmin\index.html" />
+    <Content Include="App\UserAdmin\modal.controller.js" />
     <Content Include="App\User\index.html" />
     <Content Include="App\User\user.controller.js" />
     <Content Include="App\User\user.module.js" />
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\CYT.Entities.dll" />
+    <Content Include="bin\CYT.Entities.pdb" />
+    <Content Include="bin\CYT.Web.dll" />
+    <Content Include="bin\CYT.Web.pdb" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.xml" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.xml" />
+    <Content Include="bin\Microsoft.Owin.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Cookies.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Google.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Google.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.OAuth.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.OAuth.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.Twitter.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Twitter.xml" />
+    <Content Include="bin\Microsoft.Owin.Security.xml" />
+    <Content Include="bin\Microsoft.Owin.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\Owin.dll" />
+    <Content Include="bin\RestSharp.dll" />
+    <Content Include="bin\RestSharp.xml" />
+    <Content Include="bin\SendGrid.dll" />
+    <Content Include="bin\SendGrid.SmtpApi.dll" />
+    <Content Include="bin\SendGridMail.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.xml" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Http.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.xml" />
+    <Content Include="bin\System.Web.Http.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\Twilio.Api.dll" />
+    <Content Include="bin\Twilio.Api.pdb" />
+    <Content Include="bin\Twilio.Api.xml" />
+    <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\clock.png" />
+    <Content Include="Content\recipe.css" />
+    <Content Include="Content\user-admin.css" />
+    <Content Include="Content\userImage.png" />
+    <Content Include="Content\Users\1\Recipes\1\1.1.jpg" />
+    <Content Include="Content\Users\1\Recipes\1\1.2.jpg" />
+    <Content Include="Content\Users\1\Recipes\1\1.3.jpg" />
+    <Content Include="Content\Users\1\Recipes\1\1.4.jpg" />
+    <Content Include="Content\Users\1\Recipes\1\1.5.jpg" />
+    <Content Include="Content\Users\1\Recipes\1\1.6.jpg" />
+    <Content Include="Content\Users\1\Recipes\1\1.7.jpg" />
+    <Content Include="Content\Users\1\Recipes\1\1.8.jpg" />
+    <Content Include="Content\Users\1\Recipes\2\6.1.jpg" />
+    <Content Include="Content\Users\1\Recipes\2\6.2.jpg" />
+    <Content Include="Content\Users\1\Recipes\2\6.3.jpg" />
+    <Content Include="Content\Users\1\Recipes\2\6.4.jpg" />
+    <Content Include="Content\Users\1\Recipes\2\6.5.jpg" />
+    <Content Include="Content\Users\1\Recipes\3\1.jpg" />
+    <Content Include="Content\Users\1\Recipes\3\2.jpg" />
+    <Content Include="Content\Users\1\viktor.jpg" />
+    <Content Include="Content\Users\2\Recipes\1\2.1.jpg" />
+    <Content Include="Content\Users\2\Recipes\1\2.2.jpg" />
+    <Content Include="Content\Users\2\Recipes\1\2.3.jpg" />
+    <Content Include="Content\Users\2\Recipes\2\7.1.jpg" />
+    <Content Include="Content\Users\2\Recipes\2\7.2.jpg" />
+    <Content Include="Content\Users\2\Recipes\2\7.3.jpg" />
+    <Content Include="Content\Users\2\Recipes\2\7.4.jpg" />
+    <Content Include="Content\Users\2\Recipes\3\3.jpg" />
+    <Content Include="Content\Users\2\Recipes\3\4.jpg" />
+    <Content Include="Content\Users\2\viktor.jpg" />
+    <Content Include="Content\Users\3\ivan.png" />
+    <Content Include="Content\Users\3\Recipes\1\3.1.jpg" />
+    <Content Include="Content\Users\3\Recipes\1\3.2.jpg" />
+    <Content Include="Content\Users\3\Recipes\1\3.3.jpg" />
+    <Content Include="Content\Users\3\Recipes\1\3.4.jpg" />
+    <Content Include="Content\Users\3\Recipes\1\3.5.jpg" />
+    <Content Include="Content\Users\3\Recipes\2\8.1.jpg" />
+    <Content Include="Content\Users\3\Recipes\2\8.2.jpg" />
+    <Content Include="Content\Users\3\Recipes\2\8.3.jpg" />
+    <Content Include="Content\Users\3\Recipes\2\8.4.jpg" />
+    <Content Include="Content\Users\4\Recipes\1\4.1.jpg" />
+    <Content Include="Content\Users\4\Recipes\1\4.2.jpg" />
+    <Content Include="Content\Users\4\Recipes\1\4.3.jpg" />
+    <Content Include="Content\Users\4\Recipes\1\4.4.jpg" />
+    <Content Include="Content\Users\4\Recipes\1\4.5.jpg" />
+    <Content Include="Content\Users\4\Recipes\1\4.6.jpg" />
+    <Content Include="Content\Users\4\Recipes\2\9.1.jpg" />
+    <Content Include="Content\Users\4\Recipes\2\9.2.jpg" />
+    <Content Include="Content\Users\4\Recipes\2\9.3.jpg" />
+    <Content Include="Content\Users\4\Recipes\2\9.4.jpg" />
+    <Content Include="Content\Users\4\Recipes\2\9.5.jpg" />
+    <Content Include="Content\Users\4\Recipes\2\9.6.jpg" />
+    <Content Include="Content\Users\4\userImage.png" />
+    <Content Include="Content\Users\5\Recipes\1\5.1.jpg" />
+    <Content Include="Content\Users\5\Recipes\1\5.2.jpg" />
+    <Content Include="Content\Users\5\Recipes\2\10.1.jpg" />
+    <Content Include="Content\Users\5\Recipes\2\10.2.jpg" />
+    <Content Include="Content\Users\5\Recipes\2\10.3.jpg" />
+    <Content Include="Content\Users\5\Recipes\2\10.4.jpg" />
+    <Content Include="Content\Users\5\Recipes\2\10.5.jpg" />
+    <Content Include="Content\Users\5\userImage.png" />
+    <Content Include="Content\Users\6\userImage.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -256,6 +477,22 @@
     <Content Include="Scripts\angular-sanitize.min.js.map" />
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\bower_components\angular-bootstrap-lightbox\dist\angular-bootstrap-lightbox.css" />
+    <Content Include="Scripts\bower_components\angular-bootstrap-lightbox\dist\angular-bootstrap-lightbox.js" />
+    <Content Include="Scripts\bower_components\angular-bootstrap-lightbox\dist\angular-bootstrap-lightbox.min.css" />
+    <Content Include="Scripts\bower_components\angular-bootstrap-lightbox\dist\angular-bootstrap-lightbox.min.js" />
+    <Content Include="Scripts\bower_components\angular-bootstrap-lightbox\index.js" />
+    <Content Include="Scripts\bower_components\angular-bootstrap-lightbox\LICENSE.txt" />
+    <Content Include="Scripts\bower_components\angular-bootstrap\.gitignore" />
+    <Content Include="Scripts\bower_components\angular-bootstrap\index.js" />
+    <Content Include="Scripts\bower_components\angular-bootstrap\ui-bootstrap-csp.css" />
+    <Content Include="Scripts\bower_components\angular-bootstrap\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\bower_components\angular-bootstrap\ui-bootstrap-tpls.min.js" />
+    <Content Include="Scripts\bower_components\angular-bootstrap\ui-bootstrap.js" />
+    <Content Include="Scripts\bower_components\angular-bootstrap\ui-bootstrap.min.js" />
+    <Content Include="Scripts\bower_components\angular-ellipsis\.gitignore" />
+    <Content Include="Scripts\bower_components\angular-ellipsis\src\angular-ellipsis.js" />
+    <Content Include="Scripts\bower_components\angular-ellipsis\src\angular-ellipsis.min.js" />
     <Content Include="Scripts\bower_components\angular-ui-router\.bower.json" />
     <Content Include="Scripts\bower_components\angular-ui-router\bower.json" />
     <Content Include="Scripts\bower_components\angular-ui-router\CHANGELOG.md" />
@@ -268,6 +505,21 @@
     <Content Include="Scripts\bower_components\angular\bower.json" />
     <Content Include="Scripts\bower_components\angular\package.json" />
     <Content Include="Scripts\bower_components\angular\README.md" />
+    <None Include="bin\CYT.Web.dll.config" />
+    <Content Include="Scripts\bower_components\angular-bootstrap-lightbox\.bower.json" />
+    <Content Include="Scripts\bower_components\angular-bootstrap-lightbox\api.md" />
+    <Content Include="Scripts\bower_components\angular-bootstrap-lightbox\bower.json" />
+    <Content Include="Scripts\bower_components\angular-bootstrap-lightbox\README.md" />
+    <Content Include="Scripts\bower_components\angular-bootstrap\.bower.json" />
+    <Content Include="Scripts\bower_components\angular-bootstrap\.npmignore" />
+    <Content Include="Scripts\bower_components\angular-bootstrap\bower.json" />
+    <Content Include="Scripts\bower_components\angular-bootstrap\package.json" />
+    <Content Include="Scripts\bower_components\angular-bootstrap\README.md" />
+    <Content Include="Scripts\bower_components\angular-ellipsis\.bower.json" />
+    <Content Include="Scripts\bower_components\angular-ellipsis\bower.json" />
+    <Content Include="Scripts\bower_components\angular-ellipsis\LICENSE" />
+    <Content Include="Scripts\bower_components\angular-ellipsis\package.json" />
+    <Content Include="Scripts\bower_components\angular-ellipsis\README.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bower_components\angular-ui-router\release\angular-ui-router.js" />
     <Content Include="Scripts\bower_components\angular-ui-router\release\angular-ui-router.min.js" />
@@ -297,7 +549,63 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="UI Templates\.idea\modules.xml" />
+    <Content Include="UI Templates\.idea\workspace.xml" />
+    <Content Include="UI Templates\admin-admin.css" />
+    <Content Include="UI Templates\admin-admin.html" />
+    <Content Include="UI Templates\assets\icons\clock.png" />
+    <Content Include="UI Templates\carousel.css" />
+    <Content Include="UI Templates\css\bootstrap-theme.css" />
+    <Content Include="UI Templates\css\bootstrap-theme.min.css" />
+    <Content Include="UI Templates\css\bootstrap.css" />
+    <Content Include="UI Templates\css\bootstrap.min.css" />
+    <Content Include="UI Templates\css\docs.min.css" />
+    <Content Include="UI Templates\css\ie10-viewport-bug-workaround.css" />
+    <Content Include="UI Templates\css\src\docs.css" />
+    <Content Include="UI Templates\css\src\pygments-manni.css" />
+    <Content Include="UI Templates\fonts\css\font-awesome.css" />
+    <Content Include="UI Templates\fonts\css\font-awesome.min.css" />
+    <Content Include="UI Templates\fonts\fonts\fontawesome-webfont.svg" />
+    <Content Include="UI Templates\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="UI Templates\img\500x330-1.gif" />
+    <Content Include="UI Templates\img\500x330.gif" />
+    <Content Include="UI Templates\img\900x300.gif" />
+    <Content Include="UI Templates\img\DSC_1681-150x150.jpg" />
+    <Content Include="UI Templates\img\DSC_4073-150x150.jpg" />
+    <Content Include="UI Templates\img\guinnes-150x150.jpg" />
+    <Content Include="UI Templates\img\spaghetti_bolognese.jpg" />
+    <Content Include="UI Templates\index.html" />
+    <Content Include="UI Templates\js\bootstrap.js" />
+    <Content Include="UI Templates\js\bootstrap.min.js" />
+    <Content Include="UI Templates\js\customize.min.js" />
+    <Content Include="UI Templates\js\docs.min.js" />
+    <Content Include="UI Templates\js\ie-emulation-modes-warning.js" />
+    <Content Include="UI Templates\js\ie10-viewport-bug-workaround.js" />
+    <Content Include="UI Templates\js\ie8-responsive-file-warning.js" />
+    <Content Include="UI Templates\js\jquery.js" />
+    <Content Include="UI Templates\js\npm.js" />
+    <Content Include="UI Templates\js\raw-files.min.js" />
+    <Content Include="UI Templates\js\src\application.js" />
+    <Content Include="UI Templates\js\src\customizer.js" />
+    <Content Include="UI Templates\js\vendor\anchor.js" />
+    <Content Include="UI Templates\js\vendor\autoprefixer.js" />
+    <Content Include="UI Templates\js\vendor\Blob.js" />
+    <Content Include="UI Templates\js\vendor\FileSaver.js" />
+    <Content Include="UI Templates\js\vendor\holder.min.js" />
+    <Content Include="UI Templates\js\vendor\jquery.min.js" />
+    <Content Include="UI Templates\js\vendor\jszip.min.js" />
+    <Content Include="UI Templates\js\vendor\less.min.js" />
+    <Content Include="UI Templates\js\vendor\uglify.min.js" />
+    <Content Include="UI Templates\js\vendor\ZeroClipboard.min.js" />
+    <Content Include="UI Templates\recipe.css" />
+    <Content Include="UI Templates\Recipe.html" />
+    <Content Include="UI Templates\user-admin.css" />
+    <Content Include="UI Templates\user-admin.html" />
+    <Content Include="UI Templates\user-profile.css" />
+    <Content Include="UI Templates\UserProfile.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -332,9 +640,54 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Shared\Info.cshtml" />
+    <Content Include="UI Templates\.idea\Proekt IKT.iml" />
+    <Content Include="UI Templates\css\bootstrap-theme.css.map" />
+    <Content Include="UI Templates\css\bootstrap-theme.min.css.map" />
+    <Content Include="UI Templates\css\bootstrap.css.map" />
+    <Content Include="UI Templates\css\bootstrap.min.css.map" />
+    <Content Include="UI Templates\css\docs.min.css.map" />
+    <Content Include="UI Templates\fonts\fonts\fontawesome-webfont.eot" />
+    <Content Include="UI Templates\fonts\fonts\fontawesome-webfont.ttf" />
+    <Content Include="UI Templates\fonts\fonts\fontawesome-webfont.woff" />
+    <Content Include="UI Templates\fonts\fonts\FontAwesome.otf" />
+    <Content Include="UI Templates\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="UI Templates\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="UI Templates\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="UI Templates\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="UI Templates\fonts\less\bordered-pulled.less" />
+    <Content Include="UI Templates\fonts\less\core.less" />
+    <Content Include="UI Templates\fonts\less\fixed-width.less" />
+    <Content Include="UI Templates\fonts\less\font-awesome.less" />
+    <Content Include="UI Templates\fonts\less\icons.less" />
+    <Content Include="UI Templates\fonts\less\larger.less" />
+    <Content Include="UI Templates\fonts\less\list.less" />
+    <Content Include="UI Templates\fonts\less\mixins.less" />
+    <Content Include="UI Templates\fonts\less\path.less" />
+    <Content Include="UI Templates\fonts\less\rotated-flipped.less" />
+    <Content Include="UI Templates\fonts\less\spinning.less" />
+    <Content Include="UI Templates\fonts\less\stacked.less" />
+    <Content Include="UI Templates\fonts\less\variables.less" />
+    <Content Include="UI Templates\fonts\scss\font-awesome.scss" />
+    <Content Include="UI Templates\fonts\scss\_bordered-pulled.scss" />
+    <Content Include="UI Templates\fonts\scss\_core.scss" />
+    <Content Include="UI Templates\fonts\scss\_fixed-width.scss" />
+    <Content Include="UI Templates\fonts\scss\_icons.scss" />
+    <Content Include="UI Templates\fonts\scss\_larger.scss" />
+    <Content Include="UI Templates\fonts\scss\_list.scss" />
+    <Content Include="UI Templates\fonts\scss\_mixins.scss" />
+    <Content Include="UI Templates\fonts\scss\_path.scss" />
+    <Content Include="UI Templates\fonts\scss\_rotated-flipped.scss" />
+    <Content Include="UI Templates\fonts\scss\_spinning.scss" />
+    <Content Include="UI Templates\fonts\scss\_stacked.scss" />
+    <Content Include="UI Templates\fonts\scss\_variables.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Users\6\Recipes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -353,6 +706,30 @@
     <EmbeddedResource Include="DataContext\CytMigrations\201604231319463_InitialCreate.resx">
       <DependentUpon>201604231319463_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DataContext\CytMigrations\201606071519210_Username.resx">
+      <DependentUpon>201606071519210_Username.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContext\CytMigrations\201606071707554_AddUserIdInRecipe.resx">
+      <DependentUpon>201606071707554_AddUserIdInRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContext\CytMigrations\201606072305109_RemoveQuantityIngrediantEntity.resx">
+      <DependentUpon>201606072305109_RemoveQuantityIngrediantEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContext\CytMigrations\201606101234221_ShortDescriptionOnRecipe.resx">
+      <DependentUpon>201606101234221_ShortDescriptionOnRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContext\CytMigrations\201606101607143_IsUserBlockedMigration.resx">
+      <DependentUpon>201606101607143_IsUserBlockedMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContext\CytMigrations\201606110954311_AddedFavoriteRecipes.resx">
+      <DependentUpon>201606110954311_AddedFavoriteRecipes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContext\IdentityMigrations\201606012204011_initialCreate.resx">
+      <DependentUpon>201606012204011_initialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContext\IdentityMigrations\201606071232263_InitialCreate2.resx">
+      <DependentUpon>201606071232263_InitialCreate2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -368,11 +745,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49395</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49395/</IISUrl>
+          <IISUrl>https://localhost:44301/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

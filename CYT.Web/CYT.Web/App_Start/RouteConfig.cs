@@ -12,6 +12,11 @@ namespace CYT.Web
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+                name: "Account",
+                url: "Account/{action}",
+                defaults: new { controller = "Account", action = "Index" }
+            );
 
             routes.MapRoute(
                 name: "SPA",
@@ -24,6 +29,9 @@ namespace CYT.Web
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            
+
+            
         }
     }
 }

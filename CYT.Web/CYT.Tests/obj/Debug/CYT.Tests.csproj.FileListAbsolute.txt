@@ -1,149 +1,185 @@
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.dll.config
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.pdb
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\CYT.Web.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Web.Helpers.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Web.Mvc.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Web.Razor.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Razor.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\EntityFramework.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Web.Optimization.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\Owin.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\CYT.Entities.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.WebHost.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Net.Http.Formatting.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\CYT.Web.pdb
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Web.Helpers.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Web.Mvc.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Web.Razor.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Razor.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\EntityFramework.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Web.Optimization.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\CYT.Entities.pdb
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.WebHost.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\bin\Debug\System.Net.Http.Formatting.xml
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.csprojResolveAssemblyReference.cache
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.dll
-C:\Users\Viktor\Documents\Visual Studio 2013\Projects\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.pdb
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.dll.config
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.pdb
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\CYT.Web.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Web.Helpers.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Web.Mvc.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Web.Razor.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Razor.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Web.Optimization.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Owin.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\EntityFramework.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Net.Http.Formatting.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.WebHost.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\CYT.Web.pdb
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Web.Helpers.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Web.Mvc.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Web.Razor.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Razor.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Web.Optimization.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\EntityFramework.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Net.Http.Formatting.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.WebHost.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.csprojResolveAssemblyReference.cache
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.dll
-C:\Users\Home\Desktop\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.pdb
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.dll.config
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.pdb
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Web.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Newtonsoft.Json.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Helpers.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Mvc.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Razor.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Razor.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\EntityFramework.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Optimization.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Owin.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Net.Http.Formatting.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.WebHost.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Web.pdb
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Newtonsoft.Json.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Helpers.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Mvc.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Razor.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Razor.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\EntityFramework.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Optimization.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Net.Http.Formatting.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.WebHost.xml
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.csprojResolveAssemblyReference.cache
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.pdb
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Entities.dll
-C:\Users\user\Desktop\ikt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Entities.pdb
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.dll.config
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.pdb
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Web.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Helpers.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Mvc.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Razor.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\EntityFramework.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Optimization.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\SendGridMail.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Twilio.Api.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Owin.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Entities.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\SendGrid.SmtpApi.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Web.pdb
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Helpers.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Mvc.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Razor.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\EntityFramework.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Optimization.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Twilio.Api.pdb
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Twilio.Api.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Entities.pdb
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.WebHost.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.dll
+C:\Users\Ginovski Goran Ginko\Desktop\FINAL PROJECT\create-your-taste\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.pdb
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.dll.config
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.pdb
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Web.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Helpers.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Mvc.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Razor.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\EntityFramework.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Optimization.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Owin.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Entities.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\SendGridMail.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Twilio.Api.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\SendGrid.SmtpApi.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Web.pdb
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Helpers.xml
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Mvc.xml
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Razor.xml
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.xml
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Entities.pdb
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.pdb
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.dll.config
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.pdb
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Web.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Helpers.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Mvc.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Razor.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\EntityFramework.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Optimization.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\SendGridMail.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Twilio.Api.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Owin.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Entities.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\SendGrid.SmtpApi.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Web.pdb
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Helpers.xml
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Mvc.xml
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Razor.xml
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.xml
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Entities.pdb
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.dll
+C:\Users\Home\Desktop\FinalProject\create-your-taste\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.pdb
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Viktor\Desktop\Proekt\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.Google.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.dll.config
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Tests.pdb
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Web.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Helpers.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Mvc.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Razor.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\EntityFramework.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Optimization.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\SendGridMail.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Twilio.Api.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Owin.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Entities.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Security.Google.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\SendGrid.SmtpApi.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Web.pdb
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Helpers.xml
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Mvc.xml
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.Razor.xml
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.xml
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\bin\Debug\CYT.Entities.pdb
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.dll
+C:\Users\Home\Desktop\Final\create-your-taste\CYT.Web\CYT.Tests\obj\Debug\CYT.Tests.pdb
